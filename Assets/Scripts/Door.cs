@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private bool isDoorOpen;
-    Collider2D switchCollider;
+    public bool isDoorOpen;
+    Collider2D playerCollider;
+    Animator doorAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        switchCollider= GetComponent<Collider2D>();
+        doorAnimator = GetComponent<Animator>();
+        playerCollider= GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -20,19 +22,23 @@ public class Door : MonoBehaviour
         
     }
 
-    public void OpenDoor()
+    public void OpenedDoor()
     {
         if (!isDoorOpen)
         {
             SetState(true);
+            Debug.Log("Door Open!");
+
         }
     }
 
-    public void CloseDoor()
+    public void ClosingDoor()
     {
         if (isDoorOpen)
         {
             SetState(false);
+            Debug.Log("Door Closed!");
+
         }
     }
 
@@ -41,18 +47,19 @@ public class Door : MonoBehaviour
     {
         if (isDoorOpen)
         {
-            CloseDoor();
+            ClosingDoor();
         }
         else
         {
-            OpenDoor();
+            OpenedDoor();
         }
 
     }
     private void SetState(bool open)
     {
         isDoorOpen = open; //Så vi starter med at døra er Closed. Dermed er SetState = true.
+        doorAnimator.SetBool("Open", open);
 
-        switchCollider.isTrigger = open;
+        playerCollider.isTrigger = open;
     }
 }
