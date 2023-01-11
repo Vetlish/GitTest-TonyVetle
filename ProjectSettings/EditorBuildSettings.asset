@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vetles Scene.unity
     guid: 4260b3c060bb92f42834bae00a42e34b
+  - enabled: 1
+    path: Assets/Scenes/Tonys Scene.unity
+    guid: 8372b4997a98dbb43b50d35208c6ae29
   m_configObjects: {}
