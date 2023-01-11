@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwitchToggle : MonoBehaviour
 {
+    Animator switchAnimator;
+
     public GameObject switchTarget;
     public bool switchOn;//For switch knappen
 
@@ -12,7 +14,7 @@ public class SwitchToggle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        switchAnimator= GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,16 +44,20 @@ public class SwitchToggle : MonoBehaviour
         if (switchOn)
         {
             SwitchOff();
+            Debug.Log("Switch Off");
         }
         else
         {
             SwitchOn();
+            Debug.Log("Switch On");
         }
     }
 
     private void SetState(bool on)
     {
-        switchOn = on; //Så vi starter med at døra er Closed. Dermed er SetState = true.
+        switchOn = on; //Så vi starter med at switch er Off. Dermed er SetState = true.
+
+        switchAnimator.SetBool("On", on);
 
         if (on)
         {

@@ -22,9 +22,9 @@ public class PlayerMove : MonoBehaviour
         //animator.SetFloat("Vertical", movement.y);
         //animator.SetFloat("speed", movement.sqrMagnitude);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-             
+            switchColliders.ForEach(n => n.SendMessage("Use", SendMessageOptions.DontRequireReceiver));
         }
     }
 
