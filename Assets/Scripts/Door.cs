@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
         
     }
 
-    public void OpenedDoor()
+    public void OpenDoor()
     {
         if (!isDoorOpen)
         {
@@ -32,12 +32,13 @@ public class Door : MonoBehaviour
         }
     }
 
-    public void ClosingDoor()
+    public void CloseDoor()
     {
         if (isDoorOpen)
         {
             SetState(false);
             Debug.Log("Door Closed!");
+
 
         }
     }
@@ -47,11 +48,13 @@ public class Door : MonoBehaviour
     {
         if (isDoorOpen)
         {
-            ClosingDoor();
+            CloseDoor();
+
         }
         else
         {
-            OpenedDoor();
+            OpenDoor();
+
         }
 
     }

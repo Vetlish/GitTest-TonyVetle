@@ -66,12 +66,13 @@ public class SwitchToggle : MonoBehaviour
                 switchTarget.SendMessage(OnMessage);
             }
 
-            else
+
+        }
+        else
+        {
+            if (switchTarget != null && !string.IsNullOrEmpty(OffMessage))
             {
-                if (switchTarget != null && !string.IsNullOrEmpty(OffMessage))
-                {
-                    switchTarget.SendMessage(OffMessage);
-                }
+                switchTarget.SendMessage(OffMessage);
             }
         }
     }

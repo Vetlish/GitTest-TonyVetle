@@ -282,8 +282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchTarget: {fileID: 864493038}
   switchOn: 0
-  OnMessage: OpenedDoor
-  OffMessage: ClosingDoor
+  OnMessage: OpenDoor
+  OffMessage: CloseDoor
 --- !u!61 &735051816
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2995,6 +2995,18 @@ PrefabInstance:
     - target: {fileID: 1214600792019637073, guid: 356dd72ac2ea013418fcb42039b0a8cf, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214600792019637086, guid: 356dd72ac2ea013418fcb42039b0a8cf, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214600792019637086, guid: 356dd72ac2ea013418fcb42039b0a8cf, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214600792019637086, guid: 356dd72ac2ea013418fcb42039b0a8cf, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1214600792019637087, guid: 356dd72ac2ea013418fcb42039b0a8cf, type: 3}
       propertyPath: m_RootOrder
