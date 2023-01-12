@@ -7,11 +7,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform interactor;
     [SerializeField] private Animator animator;
 
     List<Collider2D> switchColliders = new List<Collider2D>();
 
     Vector2 movement;
+
 
     private void Update()
     {
@@ -26,6 +28,22 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetFloat("LastHorizontal", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("LastVertical", Input.GetAxisRaw("Vertical"));
+        }
+        if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            interactor.localRotation = Quaternion.Euler(0, 0, 90);
+        }        
+        if(Input.GetAxisRaw("Horizontal") < 0)
+        {
+            interactor.localRotation = Quaternion.Euler(0, 0, -90);
+        } 
+        if(Input.GetAxisRaw("Vertical") > 0)
+        {
+            interactor.localRotation = Quaternion.Euler(0, 0, 180);
+        } 
+        if(Input.GetAxisRaw("Vertical") < 0)
+        {
+            interactor.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
