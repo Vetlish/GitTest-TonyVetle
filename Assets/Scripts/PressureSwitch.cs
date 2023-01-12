@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PressureSwitch : SwitchToggle
 {
+     
     int numberColliding = 0;
 
     private void OnTriggerEnter2D(Collider2D buttons)
