@@ -46,6 +46,12 @@ public class PlayerMove : MonoBehaviour
             interactor.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            animator.SetBool("Attacking", true);
+            animator.SetBool("Attacking", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             switchColliders.ForEach(n => n.SendMessage("Use", SendMessageOptions.DontRequireReceiver));
