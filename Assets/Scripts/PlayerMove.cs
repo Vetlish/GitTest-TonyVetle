@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] public float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
-    public Animator animator;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
 
     List<Collider2D> switchColliders = new List<Collider2D>();
 
