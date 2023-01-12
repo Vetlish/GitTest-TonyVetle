@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool isDoorOpen;
     Collider2D playerCollider;
     Animator doorAnimator;
 
+    [SerializeField] private bool isDoorOpen;
+
+    [SerializeField] private int knocksToOpen;
+    private int knocks;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,8 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (!isDoorOpen)
+        knocks++;
+        if (!isDoorOpen && knocks >= knocksToOpen)
         {
             SetState(true);
             Debug.Log("Door Open!");
@@ -34,7 +38,8 @@ public class Door : MonoBehaviour
 
     public void CloseDoor()
     {
-        if (isDoorOpen)
+        knocks--;
+        if (isDoorOpen && knocks < knocksToOpen)
         {
             SetState(false);
             Debug.Log("Door Closed!");
