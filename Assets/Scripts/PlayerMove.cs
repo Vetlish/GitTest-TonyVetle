@@ -49,13 +49,18 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             animator.SetBool("Attacking", true);
-            animator.SetBool("Attacking", false);
+            Invoke("CancelAttack", 0.1f);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             switchColliders.ForEach(n => n.SendMessage("Use", SendMessageOptions.DontRequireReceiver));
         }
+    }
+
+    private void CancelAttack()
+    {
+        animator.SetBool("Attacking", false);
     }
 
     private void FixedUpdate()
